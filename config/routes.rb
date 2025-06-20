@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # get 'book/show'
   # get 'book/edit'
 
-  resources :book, path: '/bookers/book'
+  resources :books, path: '/bookers/books'
 
   # resources :book #これ1個でnew,show,delete,create,edit,index...自動生成
 
