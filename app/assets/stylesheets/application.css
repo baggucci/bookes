@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+ #error_explanation {
+    border: 1px solid red;
+    padding-top: 0;
+    background-color: rgb(172, 165, 165);
+    margin: 20px;
+    margin-left: 0%;
+  }
+  
+  #error_explanation h2 {
+    margin: 0;
+    background-color: rgb(205, 21, 21);
+    border: 1px solid red;
+    color: aliceblue;
+  }
+
+  .field_with_errors label {
+    background-color: red;
+    display: inline-block;       /* テキスト幅にあわせて背景が伸びる */
+  }
+
+    /*それぞれ設定する  */
+  .field_with_errors input { 
+    border: 1px solid red
+    }
+
+  .field_with_errors textarea { 
+    border: 1px solid red
+    }

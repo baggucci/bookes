@@ -21,10 +21,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       # 保存成功 → 詳細ページへリダイレクト
-      redirect_to book_path(@book)
       flash[:notice] ='Book was successfully created.'  #showの呼出し！はbook"でs不要！
+      redirect_to book_path(@book)
     else
-      # @books = Book.all 
+      @books= Book.all
       # バリデーションエラー → 新規フォームを再表示
       render :index
     end
@@ -33,15 +33,18 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to books_path
     flash[:notice] ='Book was successfully destroyed.' 
+    redirect_to books_path
   end
   
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
-    redirect_to book_path 
-    flash[:notice] ='Book was successfully updated.' 
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      flash[:notice] ='Book was successfully updated.' 
+      redirect_to book_path
+    else
+      render :edit 
+    end
   end
 
   private
