@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :books, path: '/bookers/books'
+  resources :books
+  # , path: '/bookers/books'
  
-  get 'books/new'
-  get 'books/show'
-  get 'books/edit'
+  root 'homes#top'
+  # get 'books/new'
+  # get 'books/show'
+  # get 'books/edit'
 
   # Resourceあるから不要? patch 'books/:id' => 'books#update', as: 'update_book'
 
